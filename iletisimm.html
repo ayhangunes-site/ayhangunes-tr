@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, viewport-fit=cover">
+    <title>İletişim | Ayhan Güneş — Bilişim Teknolojileri ve Yazılım</title>
+    <style>
+        :root {
+            --color-void: #000000;
+            --color-bone-white: #ffffff;
+            --color-ash-gray: #9a9a9a;
+            --color-silver-mist: #bdbdbd;
+            --color-electric-iris: #8052ff;
+            --color-saffron-spark: #ffb829;
+            --font-stack: 'PP Neue Montreal', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            touch-action: manipulation;
+        }
+
+        body {
+            background-color: var(--color-void);
+            color: var(--color-bone-white);
+            font-family: var(--font-stack);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--color-bone-white);
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .logo-icon {
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, var(--color-electric-iris), var(--color-saffron-spark));
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-ash-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-bone-white);
+        }
+
+        /* Main Contact Section */
+        .contact-hero {
+            padding: 180px 0 100px 0;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h1 {
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            font-weight: 200;
+            line-height: 1.6;
+            color: var(--color-silver-mist);
+            margin-bottom: 40px;
+        }
+
+        .social-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .social-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 28px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--color-bone-white);
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+
+        .social-card:hover {
+            border-color: var(--color-electric-iris);
+            background: rgba(128, 82, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .social-card svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-saffron-spark);
+            flex-shrink: 0;
+        }
+
+        .social-card span {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        /* Form Style */
+        .contact-form-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            color: var(--color-ash-gray);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: var(--color-bone-white);
+            font-family: var(--font-stack);
+            font-size: 16px;
+            transition: border-color 0.2s;
+            min-height: 44px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-electric-iris);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--color-electric-iris);
+            color: var(--color-bone-white);
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            min-height: 44px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--color-ash-gray);
+            font-size: 14px;
+            font-weight: 200;
+        }
+
+        @media(max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-info h1 {
+                font-size: 40px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasyon -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo-lockup">
+                <div class="logo-icon"></div>
+                Ayhan Güneş
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Ana Sayfa</a></li>
+                <li><a href="/#sinif5">5. Sınıf</a></li>
+                <li><a href="/#sinif6">6. Sınıf</a></li>
+                <li><a href="/#ogrenci">Öğrenci Köşesi</a></li>
+                <li><a href="/iletisim.html" style="color: var(--color-bone-white);">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- İletişim Ana Bölüm -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Sol Kolon: Bilgiler, E-posta ve Instagram -->
+                <div class="contact-info">
+                    <div style="color: var(--color-saffron-spark); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.035em; margin-bottom: 18px;">İletişim & Etkileşim</div>
+                    <h1>Bağlantıda Kalalım.</h1>
+                    <p>Bilişim Teknolojileri dersleri, projeler, materyal paylaşımları veya sorularınız için doğrudan e-posta gönderebilir ya da sosyal medya hesaplarımız üzerinden ulaşabilirsiniz.</p>
+                    
+                    <div class="social-cards">
+                        <!-- E-posta Kartı -->
+                        <a href="mailto:ayhangunes@gmail.com" class="social-card">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>ayhangunes@gmail.com</span>
+                        </a>
+
+                        <!-- Instagram Kartı -->
+                        <a href="https://instagram.com/ayhangunestr" target="_blank" rel="noopener noreferrer" class="social-card">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <span>Instagram: @ayhangunestr</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Mesaj Gönderme Formu -->
+                <div class="contact-form-wrapper">
+                    <form action="mailto:ayhangunes@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" class="form-control" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Mesaj Gönder</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ayhan Güneş — Bilişim Teknolojileri ve Yazılım Portalı. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
