@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, viewport-fit=cover">
     <title>Ayhan Güneş | Bilişim Teknolojileri ve Yazılım Portalı</title>
     <style>
         :root {
@@ -21,6 +21,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            touch-action: manipulation;
         }
 
         body {
@@ -48,6 +53,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-container {
@@ -113,6 +119,8 @@
             transition: opacity 0.2s ease;
             border: none;
             cursor: pointer;
+            min-height: 44px;
+            line-height: normal;
         }
 
         .btn-primary:hover {
@@ -291,6 +299,16 @@
             font-weight: 200;
         }
 
+        footer a {
+            color: var(--color-ash-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--color-bone-white);
+        }
+
         @media(max-width: 900px) {
             .hero-grid, .content-grid {
                 grid-template-columns: 1fr;
@@ -320,8 +338,9 @@
                 <li><a href="#sinif6">6. Sınıf</a></li>
                 <li><a href="#ogrenci">Öğrenci Köşesi</a></li>
                 <li><a href="#portal">Öğretmen Portalı</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
             </ul>
-            <a href="#portal" class="btn-primary">Portal Giriş</a>
+            <a href="iletisim.html" class="btn-primary">İletişim</a>
         </div>
     </nav>
 
@@ -458,7 +477,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Ayhan Güneş — Bilişim Teknolojileri ve Yazılım Portalı. Tüm hakları saklıdır.</p>
+            <p>&copy; 2026 Ayhan Güneş — Bilişim Teknolojileri ve Yazılım Portalı. Tüm hakları saklıdır. | <a href="iletisim.html">İletişim</a></p>
         </div>
     </footer>
 
